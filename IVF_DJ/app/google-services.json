@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "755744236340",
+    "firebase_url": "https://ivf-helper.firebaseio.com",
+    "project_id": "ivf-helper",
+    "storage_bucket": "ivf-helper.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755744236340:android:db550961811edb6a713b61",
+        "android_client_info": {
+          "package_name": "com.example.ivf_dj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755744236340-bejd0kfa219i9de6rbarsugu76hsbpl9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfos0Lh4_2zq36a4fNA9EE2fOkD2NYlC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755744236340-bejd0kfa219i9de6rbarsugu76hsbpl9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
