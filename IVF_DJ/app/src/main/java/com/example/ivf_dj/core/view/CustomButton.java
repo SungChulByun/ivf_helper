@@ -81,7 +81,7 @@ public class CustomButton extends ConstraintLayout {
 
     private void setButtonDetail() {
         switch (buttonName) {
-            case "notice":
+            case "notification":
                 textView.setText("전체 공지");
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.bell));
 

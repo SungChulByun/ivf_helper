@@ -21,6 +21,7 @@
             android:layout_width="@dimen/custom_button_size"
             android:layout_height="@dimen/custom_button_size"
             android:layout_marginTop="24dp"
+            android:onClick="@{() -> viewModel.onClickSignUpLecture()}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/classes_list_button"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,6 +32,7 @@
             android:layout_width="@dimen/custom_button_size"
             android:layout_height="@dimen/custom_button_size"
             android:layout_marginTop="24dp"
+            android:onClick="@{() -> viewModel.onClickLectureList()}"
             app:layout_constraintLeft_toRightOf="@id/sign_up_for_class_button"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +43,7 @@
             android:layout_width="@dimen/custom_button_size"
             android:layout_height="@dimen/custom_button_size"
             android:layout_marginTop="24dp"
+            android:onClick="@{() -> viewModel.onClickTimeTable()}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/notice_button"
             app:layout_constraintTop_toBottomOf="@id/sign_up_for_class_button"
@@ -51,10 +54,11 @@
             android:layout_width="@dimen/custom_button_size"
             android:layout_height="@dimen/custom_button_size"
             android:layout_marginTop="24dp"
+            android:onClick="@{() -> viewModel.onClickNotification()}"
             app:layout_constraintLeft_toRightOf="@id/time_table_button"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/classes_list_button"
-            custom:description="notice" />
+            custom:description="notification" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
