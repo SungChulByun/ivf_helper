@@ -3,14 +3,12 @@ package com.example.ivf_dj.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ivf_dj.R;
-import com.example.ivf_dj.util.LoginManager;
 
 public class SignOutButton extends ConstraintLayout {
     public SignOutButton(@NonNull Context context) {
