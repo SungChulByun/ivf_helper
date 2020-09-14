@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IVF_DJ</string>
+    <dimen name="custom_button_size">160dp</dimen>
 </resources>
