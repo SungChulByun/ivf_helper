@@ -1,10 +1,10 @@
 package com.example.ivf_dj.feature.main;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
-
-import android.os.Bundle;
 
 import com.example.ivf_dj.R;
 import com.example.ivf_dj.databinding.ActivityMainBinding;
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         initViewModel();
     }
 
-    private void initViewModel(){
+    private void initViewModel() {
         mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         mViewModel.getClickLectureListEvent().observe(this, aVoid -> RedirectHelper.startLectureListActivity(this));
@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         mViewModel.getClickSignUpLectureEvent().observe(this, aVoid -> RedirectHelper.startSignUpLectureActivity(this));
 
         mViewModel.getClickTimeTableEvent().observe(this, aVoid -> RedirectHelper.startTimeTableActivity(this));
+
+        mViewModel.getClickSettingEvent().observe(this, aVoid -> RedirectHelper.startSettingActivity(this));
 
         mBinding.setViewModel(mViewModel);
     }

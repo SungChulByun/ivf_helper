@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".feature.timeTable.TimeTableActivity"></activity>
+        <activity android:name=".feature.lecture.edit.SettingActivity"></activity>
+        <activity android:name=".feature.timeTable.TimeTableActivity" />
         <activity android:name=".feature.notification.NotificationActivity" />
         <activity android:name=".feature.lecture.signUp.SignUpLectureActivity" />
         <activity android:name=".feature.lecture.list.LectureListActivity" />
