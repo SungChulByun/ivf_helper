@@ -104,6 +104,19 @@ public class CustomButton extends ConstraintLayout {
                 textView.setText("시간표");
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.calendar));
                 setColor(R.color.sky_blue);
+                break;
+
+            case "edit":
+                textView.setText("강의 관리");
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.edit));
+                setColor(R.color.honey_navy);
+                break;
+
+            case "settings":
+                textView.setText("설정");
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.settings));
+                setColor(R.color.not_selected_gray);
+                break;
 
             default:
                 break;

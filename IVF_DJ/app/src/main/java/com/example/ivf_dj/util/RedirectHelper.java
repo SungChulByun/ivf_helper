@@ -3,6 +3,7 @@ package com.example.ivf_dj.util;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.example.ivf_dj.feature.lecture.edit.SettingActivity;
 import com.example.ivf_dj.feature.lecture.list.LectureListActivity;
 import com.example.ivf_dj.feature.lecture.signUp.SignUpLectureActivity;
 import com.example.ivf_dj.feature.main.MainActivity;
@@ -32,6 +33,11 @@ public class RedirectHelper {
 
     public static void startTimeTableActivity(Activity context){
         Intent intent = new Intent(context, TimeTableActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void startSettingActivity(Activity context){
+        Intent intent = new Intent(context, SettingActivity.class);
         context.startActivity(intent);
     }
 }
