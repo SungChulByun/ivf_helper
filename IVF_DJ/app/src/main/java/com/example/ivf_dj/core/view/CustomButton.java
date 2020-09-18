@@ -88,14 +88,14 @@ public class CustomButton extends ConstraintLayout {
                 setColor(R.color.beige_deep);
                 break;
 
-            case "sing_up_for_class":
-                textView.setText("강의 신청");
+            case "lecture_list":
+                textView.setText("강의 목록");
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.book));
                 setColor(R.color.brown);
                 break;
 
-            case "classes_list":
-                textView.setText("신청 목록");
+            case "my_lecture":
+                textView.setText("내 강의");
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.list));
                 setColor(R.color.peach_coral);
                 break;
@@ -106,15 +106,21 @@ public class CustomButton extends ConstraintLayout {
                 setColor(R.color.sky_blue);
                 break;
 
-            case "edit":
-                textView.setText("강의 관리");
-                imageView.setImageDrawable(getResources().getDrawable(R.drawable.edit));
-                setColor(R.color.honey_navy);
+            case "search":
+                textView.setText("수강 신청 현황");
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.search));
+                setColor(R.color.gold);
                 break;
 
             case "settings":
                 textView.setText("설정");
                 imageView.setImageDrawable(getResources().getDrawable(R.drawable.settings));
+                setColor(R.color.not_selected_gray);
+                break;
+
+            case "manage_staff":
+                textView.setText("스탭 관리");
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.staff));
                 setColor(R.color.not_selected_gray);
                 break;
 

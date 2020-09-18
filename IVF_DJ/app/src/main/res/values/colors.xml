@@ -4,6 +4,26 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="gray_01">#676767</color>
+    <color name="gray_02">#878787</color>
+    <color name="gray_03">#979797</color>
+    <color name="gray_04">#a7a7a7</color>
+    <color name="gray_05">#b7b7b7</color>
+    <color name="gray_06">#c7c7c7</color>
+    <color name="lightgray_01">#f2f2f2</color>
+    <color name="lightgray_02">#eeeeee</color>
+    <color name="lightgray_03">#e6e6e6</color>
+    <color name="lightgray_04">#d8d8d8</color>
+    <color name="lightgray_05">#f7f7f7</color>
+
+    <color name="bluegray_01">#f5f6f8</color>
+    <color name="main_01_opacity_10">#1e03c75a</color>
+
+    <color name="yes_or_no_dialog_button_text_color">#676767</color>
+    <color name="yes_or_no_dialog_button_accent_text_color">#009f47</color>
+
+    <color name="black">#000000</color>
+
     <color name="beige_deep">#FCE7CE</color>
     <color name="beige_light">#FCF7DE</color>
     <color name="white">#FFFFFFFF</color>

@@ -6,18 +6,18 @@ import com.example.ivf_dj.core.event.SingleLiveEvent;
 import com.example.ivf_dj.core.viewModel.BaseViewModel;
 
 public class MainViewModel extends BaseViewModel {
-    private SingleLiveEvent<Void> mClickSignUpLectureEvent = new SingleLiveEvent<>();
     private SingleLiveEvent<Void> mClickLectureListEvent = new SingleLiveEvent<>();
+    private SingleLiveEvent<Void> mClickMyLectureEvent = new SingleLiveEvent<>();
     private SingleLiveEvent<Void> mClickTimeTableEvent = new SingleLiveEvent<>();
     private SingleLiveEvent<Void> mClickNotificationEvent = new SingleLiveEvent<>();
     private SingleLiveEvent<Void> mClickSettingEvent = new SingleLiveEvent<>();
 
-    public void onClickSignUpLecture() {
-        mClickSignUpLectureEvent.call();
-    }
-
     public void onClickLectureList() {
         mClickLectureListEvent.call();
+    }
+
+    public void onClickMyLecture() {
+        mClickMyLectureEvent.call();
     }
 
     public void onClickTimeTable() {
@@ -32,12 +32,12 @@ public class MainViewModel extends BaseViewModel {
         mClickNotificationEvent.call();
     }
 
-    public LiveData<Void> getClickSignUpLectureEvent() {
-        return mClickSignUpLectureEvent;
-    }
-
     public LiveData<Void> getClickLectureListEvent() {
         return mClickLectureListEvent;
+    }
+
+    public LiveData<Void> getClickMyLectureEvent() {
+        return mClickMyLectureEvent;
     }
 
     public LiveData<Void> getClickTimeTableEvent() {

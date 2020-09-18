@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ivf_dj">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
     <application
         android:name=".IVF_DJ"
         android:allowBackup="true"
@@ -10,11 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".feature.lecture.edit.SettingActivity"></activity>
+        <activity android:name=".feature.lecture.list.addLecture.AddLectureActivity"></activity>
+        <activity android:name=".feature.edit.SettingActivity" />
         <activity android:name=".feature.timeTable.TimeTableActivity" />
         <activity android:name=".feature.notification.NotificationActivity" />
-        <activity android:name=".feature.lecture.signUp.SignUpLectureActivity" />
         <activity android:name=".feature.lecture.list.LectureListActivity" />
+        <activity android:name=".feature.lecture.myLecture.MyLectureActivity" />
         <activity android:name=".feature.main.MainActivity" />
         <activity android:name=".feature.login.LoginActivity">
             <intent-filter>

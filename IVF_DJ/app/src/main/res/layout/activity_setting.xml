@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".feature.lecture.edit.SettingActivity">
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.ivf_dj.feature.edit.SettingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.ivf_dj.core.view.CustomButton
+            android:id="@+id/search_button"
+            android:layout_width="@dimen/custom_button_size"
+            android:layout_height="@dimen/custom_button_size"
+            android:layout_marginTop="24dp"
+            android:onClick="@{() -> viewModel.onClickEditLecture()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/manage_staff_button"
+            app:layout_constraintTop_toTopOf="parent"
+            custom:description="search" />
+
+        <com.example.ivf_dj.core.view.CustomButton
+            android:id="@+id/manage_staff_button"
+            android:layout_width="@dimen/custom_button_size"
+            android:layout_height="@dimen/custom_button_size"
+            android:layout_marginTop="24dp"
+            android:onClick="@{() -> viewModel.onClickManageStaff()}"
+            app:layout_constraintLeft_toRightOf="@id/search_button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            custom:description="manage_staff" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

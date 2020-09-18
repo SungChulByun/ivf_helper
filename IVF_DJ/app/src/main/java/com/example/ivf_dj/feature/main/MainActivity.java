@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private void initViewModel() {
         mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
-        mViewModel.getClickLectureListEvent().observe(this, aVoid -> RedirectHelper.startLectureListActivity(this));
+        mViewModel.getClickMyLectureEvent().observe(this, aVoid -> RedirectHelper.startMyLectureActivity(this));
 
         mViewModel.getClickNotificationEvent().observe(this, aVoid -> RedirectHelper.startNotificationActivity(this));
 
-        mViewModel.getClickSignUpLectureEvent().observe(this, aVoid -> RedirectHelper.startSignUpLectureActivity(this));
+        mViewModel.getClickLectureListEvent().observe(this, aVoid -> RedirectHelper.startLectureListActivity(this));
 
         mViewModel.getClickTimeTableEvent().observe(this, aVoid -> RedirectHelper.startTimeTableActivity(this));
 
