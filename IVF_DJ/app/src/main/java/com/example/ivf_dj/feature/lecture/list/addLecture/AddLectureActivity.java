@@ -1,6 +1,10 @@
 package com.example.ivf_dj.feature.lecture.list.addLecture;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -17,7 +21,24 @@ public class AddLectureActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_lecture);
+        initViews();
         initViewModel();
+    }
+
+    private void initViews(){
+        mBinding.lectureNameEditText.setOnEditorActionListener((v, actionId, event) -> {
+            if(actionId == EditorInfo.IME_ACTION_DONE){
+                v.clearFocus();
+                hideKeyboard(v);
+                return true;
+            }
+            return false;
+        });
+    }
+
+    private void hideKeyboard(View view){
+        InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     private void initViewModel() {
