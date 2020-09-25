@@ -23,7 +23,7 @@ public class IVF_DJ extends Application {
         return mUser;
     }
 
-    public static void login(User user){
+    public static void appLogin(User user){
         mUser = user;
     }
 }

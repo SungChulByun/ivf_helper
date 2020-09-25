@@ -1,4 +1,4 @@
-package com.example.ivf_dj.feature.lecture.list.addLecture;
+package com.example.ivf_dj.feature.lecture.list.addlecture;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,13 +9,16 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.ivf_dj.R;
+import com.example.ivf_dj.core.recyclerview.BaseRecyclerView;
 import com.example.ivf_dj.databinding.ActivityAddLectureBinding;
 
 public class AddLectureActivity extends AppCompatActivity {
     private ActivityAddLectureBinding mBinding;
     private AddLectureViewModel mViewModel;
+    private BaseRecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,7 @@ public class AddLectureActivity extends AppCompatActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_lecture);
         initViews();
         initViewModel();
+        initRecyclerView();
     }
 
     private void initViews(){
@@ -44,13 +48,22 @@ public class AddLectureActivity extends AppCompatActivity {
     private void initViewModel() {
         mViewModel = new ViewModelProvider(this).get(AddLectureViewModel.class);
 
-        mViewModel.getStartDateTimeClickEvent().observe(this, aVoid -> {
+        mViewModel.getStartDateTimeClickEvent().observe(this, position -> {
             new CalendarDialog()
-                    .setTimeMills(mViewModel.getLecture().getLectureTime().getStartTime())
-                    .setOnOkClickListener(time -> mViewModel.onChangeStartTimeMills(time))
+                    .setTimeMills(mViewModel.getLecture().getLectureTimeList().get(position).getStartTime())
+                    .setPosition(position)
+                    .setOnOkClickListener((pos, time) -> mViewModel.onChangeStartTimeMills(pos, time))
                     .show(this);
         });
 
         mBinding.setViewModel(mViewModel);
+    }
+
+    private void initRecyclerView(){
+        LectureTimeAdapter adapter = new LectureTimeAdapter(position -> mViewModel.onClickLectureTime(position));
+        mRecyclerView = mBinding.lectureRecyclerView;
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(adapter);
+
     }
 }

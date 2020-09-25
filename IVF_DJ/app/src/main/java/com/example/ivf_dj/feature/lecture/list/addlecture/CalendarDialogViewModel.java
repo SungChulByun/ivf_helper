@@ -1,14 +1,15 @@
-package com.example.ivf_dj.feature.lecture.list.addLecture;
+package com.example.ivf_dj.feature.lecture.list.addlecture;
 
 import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
 import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableInt;
 import androidx.lifecycle.LiveData;
 
 import com.example.ivf_dj.core.event.SingleLiveEvent;
-import com.example.ivf_dj.core.viewModel.BaseViewModel;
+import com.example.ivf_dj.core.viewmodel.BaseViewModel;
 
 import java.util.Calendar;
 
@@ -23,9 +24,12 @@ public class CalendarDialogViewModel extends BaseViewModel implements DatePicker
     private ObservableField<Integer> mCalendarDayOfMonth = new ObservableField<>();
     private ObservableField<Integer> mCalendarHourOfDay = new ObservableField<>();
     private ObservableField<Integer> mCalendarMinute = new ObservableField<>();
+    private ObservableInt mPosition = new ObservableInt();
+
     private Calendar mCurrentCalendar = Calendar.getInstance();
 
-    public void start(long timeMills){
+    public void start(long timeMills, int position) {
+        mPosition.set(position);
         updateCalendar(timeMills);
         mCalendarYear.set(mCurrentCalendar.get(Calendar.YEAR));
         mCalendarMonthOfYear.set(mCurrentCalendar.get(Calendar.MONTH));
@@ -34,7 +38,7 @@ public class CalendarDialogViewModel extends BaseViewModel implements DatePicker
         mCalendarMinute.set(mCurrentCalendar.get(Calendar.MINUTE) / MINUTE_INTERVAL);
     }
 
-    private void updateCalendar(long timeMills){
+    private void updateCalendar(long timeMills) {
         mCurrentCalendar.setTimeInMillis(timeMills);
     }
 
@@ -52,11 +56,11 @@ public class CalendarDialogViewModel extends BaseViewModel implements DatePicker
         Log.d("test_by_sungchul", "onDateChanged: hour : " + hourOfDay + ", minute : " + minute * MINUTE_INTERVAL);
     }
 
-    public void onClickOKButton(){
+    public void onClickOKButton() {
         mOkClickEvent.setValue(mCurrentCalendar.getTimeInMillis());
     }
 
-    public void onClickCancelButton(){
+    public void onClickCancelButton() {
         mCancelClickEvent.call();
     }
 
@@ -86,5 +90,9 @@ public class CalendarDialogViewModel extends BaseViewModel implements DatePicker
 
     public ObservableField<Integer> getCalendarMinute() {
         return mCalendarMinute;
+    }
+
+    public ObservableInt getPosition() {
+        return mPosition;
     }
 }

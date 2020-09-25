@@ -3,7 +3,7 @@ package com.example.ivf_dj.feature.edit;
 import androidx.lifecycle.LiveData;
 
 import com.example.ivf_dj.core.event.SingleLiveEvent;
-import com.example.ivf_dj.core.viewModel.RxViewModel;
+import com.example.ivf_dj.core.viewmodel.RxViewModel;
 
 public class SettingViewModel extends RxViewModel {
     private SingleLiveEvent<Void> mClickSearchEvent = new SingleLiveEvent<>();

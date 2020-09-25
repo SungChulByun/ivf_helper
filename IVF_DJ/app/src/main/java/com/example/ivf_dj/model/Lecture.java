@@ -5,25 +5,35 @@ import androidx.databinding.Bindable;
 
 import com.example.ivf_dj.BR;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Lecture extends BaseObservable {
     private int lectureId;
     private String lectureName;
-    private LectureTime lectureTime;
+    private List<LectureTime> lectureTimeList;
     private String presenter;
     private String description;
     private String target;
 
     //Todo Image
     public Lecture(){
-        this.lectureTime = new LectureTime(System.currentTimeMillis());
+        this.lectureTimeList = createLectureTimeList(System.currentTimeMillis());
     }
 
-    public Lecture(String lectureName, int startTime, String presenter, String description, String target) {
+    public Lecture(String lectureName, long startTime, String presenter, String description, String target) {
         this.lectureName = lectureName;
-        this.lectureTime = new LectureTime(startTime);
+        this.lectureTimeList = createLectureTimeList(startTime);
         this.presenter = presenter;
         this.description = description;
         this.target = target;
+    }
+
+    private List<LectureTime> createLectureTimeList(long startTime){
+        List<LectureTime> list = new ArrayList<>();
+        list.add(new LectureTime(startTime));
+
+        return  list;
     }
 
     @Bindable
@@ -36,12 +46,16 @@ public class Lecture extends BaseObservable {
         notifyPropertyChanged(BR.lectureName);
     }
 
-    public LectureTime getLectureTime() {
-        return lectureTime;
+    public List<LectureTime> getLectureTimeList() {
+        return lectureTimeList;
     }
 
-    public void setLectureStartTime(long startTime) {
-        this.lectureTime.setStartTime(startTime);
+    public void setLectureStartTime(int position, long startTime) {
+        this.lectureTimeList.get(position).setStartTime(startTime);
+    }
+
+    public void addNewLecture(){
+        lectureTimeList.add(new LectureTime(System.currentTimeMillis()));
     }
 
     @Bindable

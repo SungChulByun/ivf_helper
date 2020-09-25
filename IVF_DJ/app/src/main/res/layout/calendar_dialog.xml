@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.ivf_dj.feature.lecture.list.addLecture.CalendarDialogViewModel" />
+            type="com.example.ivf_dj.feature.lecture.list.addlecture.CalendarDialogViewModel" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,6 +13,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:text="@{String.valueOf(viewModel.position + 1)}"
+                android:textSize="17dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="번째 수업"
+                android:textSize="17dp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,8 +71,7 @@
                 android:timePickerMode="spinner"
                 app:calendarHourOfDay="@{viewModel.calendarHourOfDay}"
                 app:calendarMinute="@{viewModel.calendarMinute}"
-                app:onTimeChanged="@{viewModel}"
-                />
+                app:onTimeChanged="@{viewModel}" />
 
         </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.example.ivf_dj.core.viewModel;
+package com.example.ivf_dj.core.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 

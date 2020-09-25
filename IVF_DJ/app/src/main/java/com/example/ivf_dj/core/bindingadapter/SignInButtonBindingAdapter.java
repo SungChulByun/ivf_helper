@@ -1,4 +1,4 @@
-package com.example.ivf_dj.core.bindingAdapter;
+package com.example.ivf_dj.core.bindingadapter;
 
 import android.view.View;
 

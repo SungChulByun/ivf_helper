@@ -1,4 +1,4 @@
-package com.example.ivf_dj.core.bindingAdapter;
+package com.example.ivf_dj.core.bindingadapter;
 
 import android.content.res.Resources;
 import android.os.Build;
@@ -11,9 +11,9 @@ import androidx.databinding.BindingAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.ivf_dj.feature.lecture.list.addLecture.CalendarDialogViewModel.MINUTE_INTERVAL;
+import static com.example.ivf_dj.feature.lecture.list.addlecture.CalendarDialogViewModel.MINUTE_INTERVAL;
 
-public class CalendarBindingAdapter {
+public class PickerBindingAdapter {
     @BindingAdapter(value = {"calendarYear", "calendarMonthOfYear", "calendarDayOfMonth", "onDateChanged"}, requireAll = false)
     public static void setDate(DatePicker view, int year, int month, int day, DatePicker.OnDateChangedListener listener) {
         view.init(year, month, day, listener);

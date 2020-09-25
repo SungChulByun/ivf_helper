@@ -1,4 +1,4 @@
-package com.example.ivf_dj.feature.lecture.list.addLecture;
+package com.example.ivf_dj.feature.lecture.list.addlecture;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,6 +21,7 @@ public class CalendarDialog extends BottomSheetDialogFragment {
     private CalendarDialogViewModel mViewModel;
     private OnOkClickListener mOkClickListener;
     private long mTimeMills;
+    private int position;
 
     @Nullable
     @Override
@@ -37,7 +38,7 @@ public class CalendarDialog extends BottomSheetDialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         observeViewModel();
-        mViewModel.start(mTimeMills);
+        mViewModel.start(mTimeMills, position);
     }
 
     private void observeViewModel() {
@@ -45,7 +46,7 @@ public class CalendarDialog extends BottomSheetDialogFragment {
 
         mViewModel.getOkClickEvent().observe(this, time -> {
             if (mOkClickListener != null) {
-                mOkClickListener.onClick(time);
+                mOkClickListener.onClick(position, time);
             }
             dismiss();
         });
@@ -58,6 +59,11 @@ public class CalendarDialog extends BottomSheetDialogFragment {
 
     public CalendarDialog setTimeMills(long timeMills){
         this.mTimeMills = timeMills;
+        return this;
+    }
+
+    public CalendarDialog setPosition(int position){
+        this.position = position;
         return this;
     }
 
@@ -86,6 +92,6 @@ public class CalendarDialog extends BottomSheetDialogFragment {
     }
 
     public interface OnOkClickListener {
-        void onClick(long time);
+        void onClick(int position, long time);
     }
 }

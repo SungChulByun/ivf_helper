@@ -14,12 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".feature.lecture.list.addLecture.AddLectureActivity"></activity>
+        <activity android:name=".feature.edit.staff.ManageStaffActivity"></activity>
+        <activity android:name=".feature.lecture.list.addlecture.AddLectureActivity" />
         <activity android:name=".feature.edit.SettingActivity" />
         <activity android:name=".feature.timeTable.TimeTableActivity" />
         <activity android:name=".feature.notification.NotificationActivity" />
         <activity android:name=".feature.lecture.list.LectureListActivity" />
-        <activity android:name=".feature.lecture.myLecture.MyLectureActivity" />
+        <activity android:name=".feature.lecture.mylecture.MyLectureActivity" />
         <activity android:name=".feature.main.MainActivity" />
         <activity android:name=".feature.login.LoginActivity">
             <intent-filter>

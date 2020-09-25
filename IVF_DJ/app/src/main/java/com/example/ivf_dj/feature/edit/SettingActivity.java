@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ivf_dj.R;
 import com.example.ivf_dj.databinding.ActivitySettingBinding;
-import com.example.ivf_dj.model.LectureTime;
+import com.example.ivf_dj.util.RedirectHelper;
 
 public class SettingActivity extends AppCompatActivity {
     private ActivitySettingBinding mBinding;
@@ -23,8 +23,10 @@ public class SettingActivity extends AppCompatActivity {
 
     }
 
-    private void initViewModel(){
+    private void initViewModel() {
         mViewModel = new ViewModelProvider(this).get(SettingViewModel.class);
+
+        mViewModel.getClickManageStaffEvent().observe(this, aVoid -> RedirectHelper.startManageStaffActivity(this));
 
         mBinding.setViewModel(mViewModel);
     }

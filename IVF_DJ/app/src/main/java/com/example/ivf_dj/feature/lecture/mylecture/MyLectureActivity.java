@@ -1,4 +1,4 @@
-package com.example.ivf_dj.feature.lecture.myLecture;
+package com.example.ivf_dj.feature.lecture.mylecture;
 
 import androidx.appcompat.app.AppCompatActivity;
 

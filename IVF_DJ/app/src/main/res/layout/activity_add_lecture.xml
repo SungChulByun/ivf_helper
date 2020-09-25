@@ -1,44 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="viewModel"
-            type="com.example.ivf_dj.feature.lecture.list.addLecture.AddLectureViewModel" />
+            type="com.example.ivf_dj.feature.lecture.list.addlecture.AddLectureViewModel" />
+
+        <import type="com.example.ivf_dj.util.converter.Converter" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="16dp"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/lecture_name_editText"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="22dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:background="@android:color/transparent"
-                android:gravity="center_vertical"
-                android:hint="강의 제목"
-                android:imeOptions="actionDone"
-                android:lines="1"
-                android:maxLength="100"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="@={viewModel.lecture.lectureName}"
-                android:textColor="@color/black"
-                android:textColorHint="@color/gray_04"
-                android:textSize="19dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/lecture_name_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="22dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"
+                    android:hint="강의 제목"
+                    android:imeOptions="actionNext"
+                    android:lines="1"
+                    android:maxLength="100"
+                    android:maxLines="1"
+                    android:onTextChanged="@{viewModel.onTextChanged}"
+                    android:singleLine="true"
+                    android:text="@={viewModel.lecture.lectureName}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray_04"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="강의 생성"
+                    android:textColor="@{viewModel.lectureReadyToCreate ? @color/yes_or_no_dialog_button_accent_text_color : @color/yes_or_no_dialog_button_text_color}"
+                    android:clickable="@{viewModel.lectureReadyToCreate ? true : false}"
+                    android:onClick="@{() -> viewModel.onClickCreateLecture()}"
+                    android:textSize="16dp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -49,29 +69,148 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:gravity="center"
-                android:onClick="@{() -> viewModel.onClickStartDateTime()}"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|left"
                     android:layout_weight="1"
-                    android:text="시작"
+                    android:text="Running Time"
                     android:textColor="@color/black"
                     android:textSize="16dp" />
 
+                <EditText
+                    android:id="@+id/hour_editText"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:onTextChanged="@{viewModel.onTextChanged}"
+                    android:text="@={Converter.integerToString(viewModel.runningTimeHour)}"
+                    android:textSize="17dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.makeTimeText(viewModel.lecture.lectureTime.startTime)}"
-                    android:textColor="@color/black"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="시간"
+                    android:textSize="17dp" />
+
+                <EditText
+                    android:id="@+id/minute_editText"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:onTextChanged="@{viewModel.onTextChanged}"
+                    android:text="@={Converter.integerToString(viewModel.runningTimeMinute)}"
+                    android:textSize="17dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="분"
                     android:textSize="17dp" />
 
             </LinearLayout>
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:text="강의 시간"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <com.example.ivf_dj.core.recyclerview.BaseRecyclerView
+                    android:id="@+id/lecture_recyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    bind:itemList="@{viewModel.lectureTimeList}" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:text="대상 : "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/transparent"
+                        android:hint="수강 대상을 입력하세요"
+                        android:onTextChanged="@{viewModel.onTextChanged}"
+                        android:text="@={viewModel.lecture.target}"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:gravity="center"
+                        android:text="내용 : "
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/transparent"
+                        android:gravity="top"
+                        android:hint="강의 내용을 입력하세요"
+                        android:onTextChanged="@{viewModel.onTextChanged}"
+                        android:text="@={viewModel.lecture.description}"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
 
 
     </LinearLayout>

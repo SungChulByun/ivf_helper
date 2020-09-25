@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 
 import com.example.ivf_dj.feature.edit.SettingActivity;
-import com.example.ivf_dj.feature.lecture.list.addLecture.AddLectureActivity;
-import com.example.ivf_dj.feature.lecture.myLecture.MyLectureActivity;
+import com.example.ivf_dj.feature.edit.staff.ManageStaffActivity;
+import com.example.ivf_dj.feature.lecture.list.addlecture.AddLectureActivity;
+import com.example.ivf_dj.feature.lecture.mylecture.MyLectureActivity;
 import com.example.ivf_dj.feature.lecture.list.LectureListActivity;
 import com.example.ivf_dj.feature.main.MainActivity;
 import com.example.ivf_dj.feature.notification.NotificationActivity;
@@ -44,6 +45,11 @@ public class RedirectHelper {
 
     public static void startAddLectureActivity(Activity context){
         Intent intent = new Intent(context, AddLectureActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void startManageStaffActivity(Activity context){
+        Intent intent = new Intent(context, ManageStaffActivity.class);
         context.startActivity(intent);
     }
 }

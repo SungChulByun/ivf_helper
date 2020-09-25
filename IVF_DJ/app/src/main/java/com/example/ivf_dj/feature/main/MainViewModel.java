@@ -3,7 +3,7 @@ package com.example.ivf_dj.feature.main;
 import androidx.lifecycle.LiveData;
 
 import com.example.ivf_dj.core.event.SingleLiveEvent;
-import com.example.ivf_dj.core.viewModel.BaseViewModel;
+import com.example.ivf_dj.core.viewmodel.BaseViewModel;
 
 public class MainViewModel extends BaseViewModel {
     private SingleLiveEvent<Void> mClickLectureListEvent = new SingleLiveEvent<>();
